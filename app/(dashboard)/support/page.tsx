@@ -131,11 +131,11 @@ export default function SupportPage() {
         </div>
 
         {/* Contact Support */}
-        <Card className="bg-gradient-to-br from-forest-600 to-forest-700 border-0 text-white">
+        <Card className="border-2 border-navy-900">
           <CardContent className="p-4">
-            <p className="font-bold mb-2">Still need help?</p>
-            <p className="text-sm mb-3 text-green-50">Contact our support team directly for personalized assistance.</p>
-            <button className="w-full py-2 bg-white text-forest-600 font-semibold rounded-lg hover:bg-ice-50">
+            <p className="font-bold mb-2 text-navy-900">Still need help?</p>
+            <p className="text-sm mb-3 text-black">Contact our support team directly for personalized assistance.</p>
+            <button className="w-full py-2 bg-navy-900 text-white font-semibold rounded-lg hover:bg-navy-800">
               Email Support
             </button>
           </CardContent>

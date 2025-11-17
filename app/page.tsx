@@ -58,7 +58,7 @@ export default function LandingPage() {
           </nav>
           <div className="flex gap-3">
             <Button 
-              onClick={() => router.push('/signup')}
+              onClick={() => router.push('/login')}
               className="bg-navy-900 hover:bg-navy-800 text-white"
             >
               Get Started
@@ -88,7 +88,7 @@ export default function LandingPage() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
           <Button 
             size="lg" 
-            onClick={() => router.push('/signup')}
+            onClick={() => router.push('/login')}
             className="bg-forest-600 hover:bg-forest-700 text-white"
           >
             Get Your Dog's Passport
@@ -496,7 +496,7 @@ export default function LandingPage() {
         <p className="text-xl text-gray-600 mb-8">Start for free. Verify with your vet. Go anywhere with confidence.</p>
         <Button 
           size="lg" 
-          onClick={() => router.push('/signup')}
+          onClick={() => router.push('/login')}
           className="bg-forest-600 hover:bg-forest-700 text-white"
         >
           Get Your Dog's Passport
