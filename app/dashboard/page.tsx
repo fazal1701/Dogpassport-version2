@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -15,16 +15,7 @@ export default function DashboardPage() {
   const { user } = useAuth();
   const [passportMode, setPassportMode] = useState<'default' | 'flight' | 'rideshare' | 'restaurant' | 'allergy'>('default');
 
-  // Authentication guard - prevent false records
-  useEffect(() => {
-    if (!user) {
-      router.push('/login');
-    }
-  }, [user, router]);
-
-  if (!user) {
-    return null; // Will redirect
-  }
+  // User is automatically logged in as John Doe
 
   const expiringRecords = mockRecords.filter(r => r.status === 'expiring-soon').length;
 

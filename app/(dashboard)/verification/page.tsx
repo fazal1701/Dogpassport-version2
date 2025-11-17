@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -16,16 +16,7 @@ export default function VerificationPage() {
   const [signature, setSignature] = useState('');
   const [vetSignature, setVetSignature] = useState('');
 
-  // Check authentication - prevent false records
-  useEffect(() => {
-    if (!mockUser) {
-      router.push('/login');
-    }
-  }, [router]);
-
-  if (!mockUser) {
-    return null;
-  }
+  // User is automatically logged in as John Doe
 
   const isPremium = mockUser.subscriptionTier === 'premium';
   const canRequestVerification = mockDog.vetInfoUploaded && mockDog.serviceDogInfoSubmitted;
