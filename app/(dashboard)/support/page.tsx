@@ -42,7 +42,7 @@ export default function SupportPage() {
             {selectedTopicData.category.toUpperCase()}
           </div>
 
-          <p className="text-gray-600 leading-relaxed whitespace-pre-wrap">{selectedTopicData.answer}</p>
+          <p className="text-black leading-relaxed whitespace-pre-wrap">{selectedTopicData.answer}</p>
 
           {selectedTopicData.relatedTopics.length > 0 && (
             <div>
@@ -115,8 +115,8 @@ export default function SupportPage() {
                 <CardContent className="p-4">
                   <div className="flex items-start justify-between gap-2">
                     <div className="flex-1">
-                      <p className="font-semibold text-navy-900 text-sm">{topic.question}</p>
-                      <p className="text-xs text-gray-600 mt-1">{topic.answer.substring(0, 60)}...</p>
+                      <p className="font-semibold text-black text-sm">{topic.question}</p>
+                      <p className="text-xs text-black mt-1">{topic.answer.substring(0, 60)}...</p>
                     </div>
                     <div className="text-gray-400">→</div>
                   </div>
