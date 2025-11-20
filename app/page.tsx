@@ -8,6 +8,7 @@ import Image from 'next/image';
 import QRCode from 'qrcode';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { Shield, CheckCircle, FileText, Lock, Plane, Car, UtensilsCrossed, Hotel, Heart, Award, QrCode, Menu, X } from 'lucide-react';
 
 export default function LandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,39 +35,39 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-off-white to-white">
       {/* Header */}
-      <header className="sticky top-0 bg-white border-b border-border z-50">
+      <header className="sticky top-0 bg-white border-b border-border z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-navy-900 rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-lg">🐾</span>
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-navy-900 rounded-lg flex items-center justify-center">
+              <Shield className="w-6 h-6 text-white" />
             </div>
             <span className="text-xl font-bold text-navy-900">Dog Passport</span>
           </div>
           <nav className="hidden md:flex gap-8">
-            <a href="#features" className="text-gray-600 hover:text-navy-900">Features</a>
-            <a href="#benefits" className="text-gray-600 hover:text-navy-900">Benefits</a>
-            <a 
-              href="#faq" 
+            <a href="#features" className="text-gray-600 hover:text-navy-900 font-medium transition-colors">Features</a>
+            <a href="#benefits" className="text-gray-600 hover:text-navy-900 font-medium transition-colors">Benefits</a>
+            <a
+              href="#faq"
               onClick={(e) => {
                 e.preventDefault();
                 document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="text-gray-600 hover:text-navy-900"
+              className="text-gray-600 hover:text-navy-900 font-medium transition-colors"
             >
               FAQ
             </a>
           </nav>
           <div className="flex gap-3">
-            <Button 
+            <Button
               onClick={() => router.push('/dashboard')}
-              className="bg-navy-900 hover:bg-navy-800 text-white"
+              className="bg-navy-900 hover:bg-navy-800 text-white font-semibold"
             >
               Get Started
             </Button>
-            <Button 
+            <Button
               onClick={() => router.push('/dashboard')}
               variant="outline"
-              className="border-navy-900 text-navy-900"
+              className="border-navy-900 text-navy-900 hover:bg-navy-50 font-semibold"
             >
               Sign In
             </Button>
@@ -77,19 +78,21 @@ export default function LandingPage() {
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
         <div className="mb-8 flex justify-center">
-          <span className="inline-block text-5xl">🐕</span>
+          <div className="w-20 h-20 bg-gradient-to-br from-navy-600 to-navy-900 rounded-2xl flex items-center justify-center shadow-lg">
+            <Shield className="w-12 h-12 text-white" />
+          </div>
         </div>
-        <h1 className="text-5xl md:text-6xl font-bold text-navy-900 mb-6 text-balance">
+        <h1 className="text-5xl md:text-6xl font-bold text-navy-900 mb-6 text-balance leading-tight">
           One Badge. Everywhere. No Questions.
         </h1>
-        <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto text-balance">
+        <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto text-balance leading-relaxed">
           Dog Passport is a trusted digital identity and health vault for service dogs. Show your verified badge at airports, restaurants, rideshare services, and everywhere you go.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-          <Button 
-            size="lg" 
+          <Button
+            size="lg"
             onClick={() => router.push('/dashboard')}
-            className="bg-forest-600 hover:bg-forest-700 text-white"
+            className="bg-forest-600 hover:bg-forest-700 text-white font-semibold text-lg px-8 py-6"
           >
             Get Your Dog's Passport
           </Button>
@@ -109,8 +112,12 @@ export default function LandingPage() {
               <h3 className="text-lg font-semibold text-navy-900">Buddy</h3>
               <p className="text-sm text-gray-600">Labrador Retriever • PTSD Alert</p>
               <div className="flex gap-2 flex-wrap justify-center">
-                <span className="inline-flex items-center gap-1 bg-emerald-100 text-emerald-800 px-2 py-1 rounded text-xs font-semibold">✓ ADA Compliant</span>
-                <span className="inline-flex items-center gap-1 bg-emerald-100 text-emerald-800 px-2 py-1 rounded text-xs font-semibold">✓ TSA Approved</span>
+                <span className="inline-flex items-center gap-1 bg-emerald-100 text-emerald-800 px-3 py-1.5 rounded-full text-xs font-semibold">
+                  <CheckCircle className="w-3 h-3" /> ADA Compliant
+                </span>
+                <span className="inline-flex items-center gap-1 bg-emerald-100 text-emerald-800 px-3 py-1.5 rounded-full text-xs font-semibold">
+                  <CheckCircle className="w-3 h-3" /> TSA Approved
+                </span>
               </div>
               <div className="bg-white w-full rounded-lg flex items-center justify-center p-4">
                 <canvas ref={qrCanvasRef} className="w-full max-w-[160px]" />
@@ -126,44 +133,49 @@ export default function LandingPage() {
         <div className="grid md:grid-cols-3 gap-8">
           {[
             {
-              icon: '✓',
+              icon: QrCode,
               title: 'Instant Verification',
               description: 'One tap QR code verification. No more paperwork, no more questions.'
             },
             {
-              icon: '🛡️',
+              icon: Shield,
               title: 'ADA & TSA Compliant',
               description: 'Built to government standards. Your dog is legally protected everywhere.'
             },
             {
-              icon: '📋',
+              icon: FileText,
               title: 'Complete Health Vault',
               description: 'All medical records, vaccines, and training certs in one secure place.'
             },
             {
-              icon: '🏆',
+              icon: Award,
               title: 'Vet Verified',
               description: 'Direct integration with your veterinarian for instant verification.'
             },
             {
-              icon: '🌐',
+              icon: Plane,
               title: 'Multi-Mode Passport',
               description: 'Flight mode, rideshare mode, restaurant mode, and more.'
             },
             {
-              icon: '🤐',
+              icon: Lock,
               title: 'Privacy First',
               description: 'Your medical info stays private. Only your dog\'s health matters.'
             },
-          ].map((feature, i) => (
-            <Card key={i} className="border border-border hover:border-forest-600 transition-colors">
-              <CardContent className="p-6">
-                <div className="text-4xl mb-4">{feature.icon}</div>
-                <h3 className="text-lg font-bold text-navy-900 mb-2">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
-              </CardContent>
-            </Card>
-          ))}
+          ].map((feature, i) => {
+            const IconComponent = feature.icon;
+            return (
+              <Card key={i} className="border border-border hover:border-forest-600 transition-all hover:shadow-md">
+                <CardContent className="p-6">
+                  <div className="w-12 h-12 bg-navy-100 rounded-lg flex items-center justify-center mb-4">
+                    <IconComponent className="w-6 h-6 text-navy-900" />
+                  </div>
+                  <h3 className="text-lg font-bold text-navy-900 mb-2">{feature.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
       </section>
 
@@ -179,19 +191,27 @@ export default function LandingPage() {
               </p>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
-                  <span className="text-red-600 font-bold">✗</span>
+                  <div className="w-5 h-5 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <X className="w-3 h-3 text-red-600" />
+                  </div>
                   <span>Restaurant workers, security, and rideshare drivers regularly ask for service dog IDs that don't exist</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-red-600 font-bold">✗</span>
+                  <div className="w-5 h-5 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <X className="w-3 h-3 text-red-600" />
+                  </div>
                   <span>Handlers face rejection and discrimination despite legal protections</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-red-600 font-bold">✗</span>
+                  <div className="w-5 h-5 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <X className="w-3 h-3 text-red-600" />
+                  </div>
                   <span>Business owners lack tools to identify legitimate service dogs, risking lawsuits</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-red-600 font-bold">✗</span>
+                  <div className="w-5 h-5 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <X className="w-3 h-3 text-red-600" />
+                  </div>
                   <span>Airline DOT forms take hours to complete and verify</span>
                 </li>
               </ul>
@@ -199,7 +219,9 @@ export default function LandingPage() {
           </div>
           <div className="bg-red-50 border-2 border-red-200 rounded-2xl p-8">
             <div className="text-center">
-              <span className="text-6xl mb-4 block">😔</span>
+              <div className="w-16 h-16 bg-red-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Heart className="w-8 h-8 text-red-600" />
+              </div>
               <p className="text-lg font-semibold text-red-900 mb-2">500,000+ Service Dogs</p>
               <p className="text-sm text-red-700">Need a trusted verification system</p>
             </div>
@@ -209,7 +231,9 @@ export default function LandingPage() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="bg-emerald-50 border-2 border-emerald-200 rounded-2xl p-8 order-2 md:order-1">
             <div className="text-center">
-              <span className="text-6xl mb-4 block">✅</span>
+              <div className="w-16 h-16 bg-emerald-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                <CheckCircle className="w-8 h-8 text-emerald-600" />
+              </div>
               <p className="text-lg font-semibold text-emerald-900 mb-2">The Solution</p>
               <p className="text-sm text-emerald-700">Dog Passport - The Official ID for Service Dogs</p>
             </div>
@@ -278,7 +302,7 @@ export default function LandingPage() {
           <Card className="border-2 border-emerald-300 bg-emerald-50">
             <CardContent className="p-6 text-center">
               <div className="w-16 h-16 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-white text-2xl">✓</span>
+                <CheckCircle className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-navy-900 mb-2">Green Checkmark</h3>
               <p className="text-sm text-gray-700 mb-4">Free • Complete</p>
@@ -291,7 +315,7 @@ export default function LandingPage() {
           <Card className="border-2 border-blue-500 bg-blue-50">
             <CardContent className="p-6 text-center">
               <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-white text-2xl">✓</span>
+                <CheckCircle className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-navy-900 mb-2">Blue Checkmark</h3>
               <p className="text-sm text-gray-700 mb-4">Premium • Verified</p>
@@ -307,110 +331,122 @@ export default function LandingPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <h2 className="text-4xl font-bold text-navy-900 mb-12 text-center">Complete Solution for Service Dog Handlers</h2>
         <div className="grid md:grid-cols-2 gap-8">
-          <Card className="border-2">
+          <Card className="border-2 hover:border-navy-300 transition-colors">
             <CardContent className="p-6">
               <div className="flex items-center gap-3 mb-4">
-                <span className="text-3xl">✈️</span>
+                <div className="w-12 h-12 bg-navy-100 rounded-lg flex items-center justify-center">
+                  <Plane className="w-6 h-6 text-navy-900" />
+                </div>
                 <h3 className="text-xl font-bold text-navy-900">Flight Mode</h3>
               </div>
               <p className="text-gray-700 mb-4">
                 Generate DOT forms in 2 clicks. TSA agents recognize the Blue Checkmark immediately. Pre-approved for major airlines including American, Delta, and United.
               </p>
               <ul className="text-sm text-gray-600 space-y-2">
-                <li>✓ Instant DOT form generation</li>
-                <li>✓ TSA pre-approval with Blue Checkmark</li>
-                <li>✓ Health certificate tracking</li>
-                <li>✓ International travel documentation</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" /> Instant DOT form generation</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" /> TSA pre-approval with Blue Checkmark</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" /> Health certificate tracking</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" /> International travel documentation</li>
               </ul>
             </CardContent>
           </Card>
 
-          <Card className="border-2">
+          <Card className="border-2 hover:border-navy-300 transition-colors">
             <CardContent className="p-6">
               <div className="flex items-center gap-3 mb-4">
-                <span className="text-3xl">🚗</span>
+                <div className="w-12 h-12 bg-navy-100 rounded-lg flex items-center justify-center">
+                  <Car className="w-6 h-6 text-navy-900" />
+                </div>
                 <h3 className="text-xl font-bold text-navy-900">Rideshare Mode</h3>
               </div>
               <p className="text-gray-700 mb-4">
                 Optimized verification for Uber and Lyft. Reduces rejection rates by 90%. Shows ADA 2-question rule to drivers. Instant acceptance.
               </p>
               <ul className="text-sm text-gray-600 space-y-2">
-                <li>✓ Uber & Lyft optimized display</li>
-                <li>✓ ADA compliance information</li>
-                <li>✓ One-tap verification</li>
-                <li>✓ Driver education cards</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" /> Uber & Lyft optimized display</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" /> ADA compliance information</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" /> One-tap verification</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" /> Driver education cards</li>
               </ul>
             </CardContent>
           </Card>
 
-          <Card className="border-2">
+          <Card className="border-2 hover:border-navy-300 transition-colors">
             <CardContent className="p-6">
               <div className="flex items-center gap-3 mb-4">
-                <span className="text-3xl">🏥</span>
+                <div className="w-12 h-12 bg-navy-100 rounded-lg flex items-center justify-center">
+                  <Heart className="w-6 h-6 text-navy-900" />
+                </div>
                 <h3 className="text-xl font-bold text-navy-900">Vet Verification Workflow</h3>
               </div>
               <p className="text-gray-700 mb-4">
                 Seamless verification process with your veterinarian. E-signatures, document review, and instant Blue Checkmark status upon approval.
               </p>
               <ul className="text-sm text-gray-600 space-y-2">
-                <li>✓ Request verification from your vet</li>
-                <li>✓ Electronic signatures</li>
-                <li>✓ Document review workflow</li>
-                <li>✓ 3-5 day review process</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" /> Request verification from your vet</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" /> Electronic signatures</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" /> Document review workflow</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" /> 3-5 day review process</li>
               </ul>
             </CardContent>
           </Card>
 
-          <Card className="border-2">
+          <Card className="border-2 hover:border-navy-300 transition-colors">
             <CardContent className="p-6">
               <div className="flex items-center gap-3 mb-4">
-                <span className="text-3xl">📋</span>
+                <div className="w-12 h-12 bg-navy-100 rounded-lg flex items-center justify-center">
+                  <FileText className="w-6 h-6 text-navy-900" />
+                </div>
                 <h3 className="text-xl font-bold text-navy-900">Health Records Vault</h3>
               </div>
               <p className="text-gray-700 mb-4">
                 Complete digital health vault with AI-powered document sorting, expiration alerts, and drag-and-drop uploads. Never lose a record again.
               </p>
               <ul className="text-sm text-gray-600 space-y-2">
-                <li>✓ AI document categorization</li>
-                <li>✓ Expiration alerts (30 days)</li>
-                <li>✓ Desktop drag-and-drop upload</li>
-                <li>✓ Mobile camera scanning</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" /> AI document categorization</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" /> Expiration alerts (30 days)</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" /> Desktop drag-and-drop upload</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" /> Mobile camera scanning</li>
               </ul>
             </CardContent>
           </Card>
 
-          <Card className="border-2">
+          <Card className="border-2 hover:border-navy-300 transition-colors">
             <CardContent className="p-6">
               <div className="flex items-center gap-3 mb-4">
-                <span className="text-3xl">🛡️</span>
+                <div className="w-12 h-12 bg-navy-100 rounded-lg flex items-center justify-center">
+                  <Shield className="w-6 h-6 text-navy-900" />
+                </div>
                 <h3 className="text-xl font-bold text-navy-900">Staff Education</h3>
               </div>
               <p className="text-gray-700 mb-4">
                 Printable education cards for restaurant staff, rideshare drivers, and business owners. Reduces conflicts and builds understanding.
               </p>
               <ul className="text-sm text-gray-600 space-y-2">
-                <li>✓ "What is a Service Dog?" guide</li>
-                <li>✓ ADA 2-question rule card</li>
-                <li>✓ Allergy concerns protocol</li>
-                <li>✓ Breed myths debunked</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" /> "What is a Service Dog?" guide</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" /> ADA 2-question rule card</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" /> Allergy concerns protocol</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" /> Breed myths debunked</li>
               </ul>
             </CardContent>
           </Card>
 
-          <Card className="border-2">
+          <Card className="border-2 hover:border-navy-300 transition-colors">
             <CardContent className="p-6">
               <div className="flex items-center gap-3 mb-4">
-                <span className="text-3xl">🔒</span>
+                <div className="w-12 h-12 bg-navy-100 rounded-lg flex items-center justify-center">
+                  <Lock className="w-6 h-6 text-navy-900" />
+                </div>
                 <h3 className="text-xl font-bold text-navy-900">Security & Authentication</h3>
               </div>
               <p className="text-gray-700 mb-4">
                 Biometric login, encrypted storage, and strict authentication prevent false records. Federal penalty warnings ensure compliance.
               </p>
               <ul className="text-sm text-gray-600 space-y-2">
-                <li>✓ Face ID / Touch ID login</li>
-                <li>✓ Encrypted document storage</li>
-                <li>✓ Authentication guards</li>
-                <li>✓ Federal compliance (18 U.S.C. § 1001)</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" /> Face ID / Touch ID login</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" /> Encrypted document storage</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" /> Authentication guards</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" /> Federal compliance (18 U.S.C. § 1001)</li>
               </ul>
             </CardContent>
           </Card>
@@ -430,19 +466,19 @@ export default function LandingPage() {
               <p className="text-4xl font-bold text-navy-900 mb-4">$0<span className="text-lg text-gray-600">/forever</span></p>
               <ul className="space-y-3 mb-6">
                 <li className="flex items-start gap-2">
-                  <span className="text-emerald-600">✓</span>
+                  <CheckCircle className="w-5 h-5 text-emerald-600 flex-shrink-0" />
                   <span className="text-sm text-gray-700">Yellow or Green Checkmark</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-emerald-600">✓</span>
+                  <CheckCircle className="w-5 h-5 text-emerald-600 flex-shrink-0" />
                   <span className="text-sm text-gray-700">Basic QR code badge</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-emerald-600">✓</span>
+                  <CheckCircle className="w-5 h-5 text-emerald-600 flex-shrink-0" />
                   <span className="text-sm text-gray-700">Document storage</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-emerald-600">✓</span>
+                  <CheckCircle className="w-5 h-5 text-emerald-600 flex-shrink-0" />
                   <span className="text-sm text-gray-700">Expiration alerts</span>
                 </li>
               </ul>
@@ -460,27 +496,27 @@ export default function LandingPage() {
               <p className="text-sm text-emerald-600 font-semibold mb-4">Save $21 vs monthly</p>
               <ul className="space-y-3 mb-6">
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600">✓</span>
+                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0" />
                   <span className="text-sm text-gray-700 font-semibold">Blue Checkmark - Most trusted verification</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600">✓</span>
+                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0" />
                   <span className="text-sm text-gray-700">Accepted by airlines, rideshares, hotels</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600">✓</span>
+                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0" />
                   <span className="text-sm text-gray-700">Instant DOT form generation (2 clicks)</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600">✓</span>
+                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0" />
                   <span className="text-sm text-gray-700">NFC tap verification</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600">✓</span>
+                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0" />
                   <span className="text-sm text-gray-700">Priority vet verification</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600">✓</span>
+                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0" />
                   <span className="text-sm text-gray-700">All premium features</span>
                 </li>
               </ul>

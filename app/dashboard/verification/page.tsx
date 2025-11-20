@@ -119,8 +119,8 @@ export default function VerificationPage() {
                         <p className="text-xs text-amber-700 mt-2">{checkmarkInfo.expires}</p>
                       )}
                       {checkmarkInfo.premium && (
-                        <p className="text-xs text-blue-700 mt-2 font-semibold">
-                          ✓ Premium Verified - Accepted by airlines, rideshares, and businesses
+                        <p className="text-xs text-blue-700 mt-2 font-semibold flex items-center gap-1">
+                          <CheckCircle2 className="w-3 h-3" /> Premium Verified - Accepted by airlines, rideshares, and businesses
                         </p>
                       )}
                     </div>
@@ -386,10 +386,10 @@ export default function VerificationPage() {
               <div className="p-4 border-2 border-navy-900 rounded-lg bg-white">
                 <p className="text-xs text-black mb-4">I hereby attest that:</p>
                 <div className="space-y-3 text-sm text-black">
-                  <p>✓ All information provided is accurate and complete</p>
-                  <p>✓ {mockDog.name} is a trained service dog required for my disability</p>
-                  <p>✓ All vaccination records are current and valid</p>
-                  <p>✓ I understand false statements are subject to federal penalties</p>
+                  <p className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" /> All information provided is accurate and complete</p>
+                  <p className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" /> {mockDog.name} is a trained service dog required for my disability</p>
+                  <p className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" /> All vaccination records are current and valid</p>
+                  <p className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" /> I understand false statements are subject to federal penalties</p>
                 </div>
               </div>
 

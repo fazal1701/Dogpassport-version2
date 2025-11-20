@@ -57,11 +57,13 @@ export default function TravelPage() {
           </div>
 
           <div>
-            <h3 className="font-bold text-navy-900 mb-3">📄 Required Documents</h3>
+            <h3 className="font-bold text-navy-900 mb-3 flex items-center gap-2">
+              <FileText className="w-5 h-5" /> Required Documents
+            </h3>
             <div className="space-y-2">
               {selectedGuideData.documents.map((doc, i) => (
                 <div key={i} className="flex items-center gap-2 p-2 bg-ice-50 rounded-lg text-sm text-gray-700">
-                  <span className="text-lg">✓</span>
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
                   <span>{doc}</span>
                 </div>
               ))}

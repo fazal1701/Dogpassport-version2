@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { mockAppointments, mockMeals, mockAIInsights } from '@/lib/mock-data';
+import { Hospital, Scissors, FileText, Heart, Pill, Apple, Dog, Sparkles } from 'lucide-react';
 
 export default function HealthPage() {
   const router = useRouter();
@@ -55,11 +56,11 @@ export default function HealthPage() {
                 <Card key={apt.id} className="border border-border hover:border-forest-600 transition-colors cursor-pointer">
                   <CardContent className="p-4">
                     <div className="flex items-start gap-3">
-                      <div className="text-2xl">
-                        {apt.type === 'vet' && '🏥'}
-                        {apt.type === 'grooming' && '🧴'}
-                        {apt.type === 'training' && '🎓'}
-                        {apt.type === 'check-up' && '❤️'}
+                      <div className="w-10 h-10 bg-ice-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        {apt.type === 'vet' && <Hospital className="w-5 h-5 text-navy-900" />}
+                        {apt.type === 'grooming' && <Scissors className="w-5 h-5 text-navy-900" />}
+                        {apt.type === 'training' && <FileText className="w-5 h-5 text-navy-900" />}
+                        {apt.type === 'check-up' && <Heart className="w-5 h-5 text-navy-900" />}
                       </div>
                       <div className="flex-1">
                         <p className="font-semibold text-navy-900">{apt.title}</p>
@@ -116,12 +117,12 @@ export default function HealthPage() {
               >
                 <CardContent className="p-4">
                   <div className="flex items-start gap-3">
-                    <div className="text-2xl">
-                      {insight.category === 'health' && '💊'}
-                      {insight.category === 'nutrition' && '🍎'}
-                      {insight.category === 'behavior' && '🐕'}
-                      {insight.category === 'training' && '🎓'}
-                      {insight.category === 'wellness' && '✨'}
+                    <div className="w-10 h-10 bg-ice-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      {insight.category === 'health' && <Pill className="w-5 h-5 text-navy-900" />}
+                      {insight.category === 'nutrition' && <Apple className="w-5 h-5 text-navy-900" />}
+                      {insight.category === 'behavior' && <Dog className="w-5 h-5 text-navy-900" />}
+                      {insight.category === 'training' && <FileText className="w-5 h-5 text-navy-900" />}
+                      {insight.category === 'wellness' && <Sparkles className="w-5 h-5 text-navy-900" />}
                     </div>
                     <div className="flex-1">
                       <p className="font-semibold text-navy-900">{insight.title}</p>

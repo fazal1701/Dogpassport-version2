@@ -66,7 +66,9 @@ export default function CommunityPage() {
                 {mockBreedCommunity.commonHealthConcerns.map((concern, i) => (
                   <Card key={i} className="border border-amber-200 bg-amber-50">
                     <CardContent className="p-3">
-                      <p className="text-sm text-amber-900">⚠️ {concern}</p>
+                      <p className="text-sm text-amber-900 flex items-center gap-2">
+                        <AlertCircle className="w-4 h-4 flex-shrink-0" /> {concern}
+                      </p>
                     </CardContent>
                   </Card>
                 ))}

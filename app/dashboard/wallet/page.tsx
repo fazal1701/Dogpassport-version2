@@ -7,7 +7,7 @@ import QRCode from 'qrcode';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { mockDog, mockDogBadges, mockRecords } from '@/lib/mock-data';
-import { CheckCircle2, Shield, Plane, Car, UtensilsCrossed, AlertCircle, Clock } from 'lucide-react';
+import { CheckCircle2, Shield, Plane, Car, UtensilsCrossed, AlertCircle, Clock, Smartphone } from 'lucide-react';
 
 type PassportMode = 'default' | 'flight' | 'rideshare' | 'restaurant' | 'allergy';
 
@@ -251,17 +251,19 @@ export default function WalletPage() {
         </Card>
 
         {/* NFC Tap Zone - Apple Wallet Style */}
-        <div 
+        <div
           className="w-full max-w-sm bg-navy-700/30 border-2 border-dashed border-navy-500/50 rounded-2xl p-6 text-center cursor-pointer hover:bg-navy-700/50 transition-all"
           onClick={handleNFC}
         >
-          <div className={`text-5xl mb-3 ${showNFCAnimation ? 'animate-bounce' : ''}`}>
-            📱
+          <div className={`mb-3 flex justify-center ${showNFCAnimation ? 'animate-bounce' : ''}`}>
+            <Smartphone className="w-12 h-12 text-navy-900" />
           </div>
           <p className="text-sm font-semibold text-black mb-1">NFC Tap Verification</p>
           <p className="text-xs text-black">Tap phone to NFC reader for instant verification</p>
           {showNFCAnimation && (
-            <p className="text-xs text-black mt-2 animate-pulse">✓ Verified</p>
+            <p className="text-xs text-black mt-2 animate-pulse flex items-center justify-center gap-1">
+              <CheckCircle2 className="w-4 h-4 text-emerald-600" /> Verified
+            </p>
           )}
         </div>
 

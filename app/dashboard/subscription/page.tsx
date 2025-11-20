@@ -76,9 +76,9 @@ export default function SubscriptionPage() {
                     Your Blue Checkmark is active until {mockUser.subscriptionExpiresAt?.toLocaleDateString()}
                   </p>
                 </div>
-                <div className="text-right">
-                  <p className="text-2xl font-bold text-blue-600">✓</p>
-                  <p className="text-xs text-gray-600">Blue Checkmark</p>
+                <div className="text-right flex flex-col items-end">
+                  <CheckCircle2 className="w-8 h-8 text-blue-600" />
+                  <p className="text-xs text-gray-600 mt-1">Blue Checkmark</p>
                 </div>
               </div>
             </CardContent>

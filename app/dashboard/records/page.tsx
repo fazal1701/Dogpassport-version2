@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { mockRecords } from '@/lib/mock-data';
-import { Upload, FileText, Clock, CheckCircle2, AlertCircle, Sparkles, Filter } from 'lucide-react';
+import { Upload, FileText, Clock, CheckCircle2, AlertCircle, Sparkles, Filter, Syringe, Award, Hospital, Pill, Scissors, Heart, File } from 'lucide-react';
 
 export default function RecordsPage() {
   const router = useRouter();
@@ -238,14 +238,14 @@ export default function RecordsPage() {
                 >
                   <CardContent className="p-4">
                     <div className="flex items-start gap-3">
-                      <div className="text-3xl">
-                        {record.category === 'vaccination' && '💉'}
-                        {record.category === 'training-cert' && '🏆'}
-                        {record.category === 'vet-visit' && '🏥'}
-                        {record.category === 'prescription' && '💊'}
-                        {record.category === 'grooming' && '🧴'}
-                        {record.category === 'health' && '❤️'}
-                        {record.category === 'other' && '📄'}
+                      <div className="w-12 h-12 bg-ice-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        {record.category === 'vaccination' && <Syringe className="w-6 h-6 text-navy-900" />}
+                        {record.category === 'training-cert' && <Award className="w-6 h-6 text-navy-900" />}
+                        {record.category === 'vet-visit' && <Hospital className="w-6 h-6 text-navy-900" />}
+                        {record.category === 'prescription' && <Pill className="w-6 h-6 text-navy-900" />}
+                        {record.category === 'grooming' && <Scissors className="w-6 h-6 text-navy-900" />}
+                        {record.category === 'health' && <Heart className="w-6 h-6 text-navy-900" />}
+                        {record.category === 'other' && <File className="w-6 h-6 text-navy-900" />}
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-start justify-between gap-2 mb-1">
@@ -274,17 +274,20 @@ export default function RecordsPage() {
                                   ? 'text-amber-600'
                                   : 'text-gray-400'
                               }`} />
-                              <p className={`text-xs font-semibold ${
+                              <p className={`text-xs font-semibold flex items-center gap-1 ${
                                 record.status === 'expired'
                                   ? 'text-red-700'
                                   : record.status === 'expiring-soon'
                                   ? 'text-amber-700'
                                   : 'text-gray-500'
                               }`}>
+                                {(record.status === 'expired' || record.status === 'expiring-soon') && (
+                                  <AlertCircle className="w-3 h-3" />
+                                )}
                                 {record.status === 'expired'
-                                  ? '⚠️ EXPIRED'
+                                  ? 'EXPIRED'
                                   : record.status === 'expiring-soon'
-                                  ? `⚠️ Expires in ${daysUntilExpiry} day${daysUntilExpiry !== 1 ? 's' : ''}`
+                                  ? `Expires in ${daysUntilExpiry} day${daysUntilExpiry !== 1 ? 's' : ''}`
                                   : `Expires ${new Date(record.expirationDate).toLocaleDateString()}`
                                 }
                               </p>

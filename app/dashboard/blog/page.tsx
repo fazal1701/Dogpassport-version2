@@ -5,6 +5,7 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { mockBlogPosts } from '@/lib/mock-data';
 import Link from 'next/link';
+import { Heart, MessageCircle, Home, Stethoscope, GraduationCap, User } from 'lucide-react';
 
 export default function BlogPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -53,8 +54,12 @@ export default function BlogPage() {
                 <div className="flex justify-between items-start mb-3">
                   <div>
                     <h3 className="text-xl font-bold text-navy-900 mb-1">{post.title}</h3>
-                    <p className="text-sm text-gray-600">
-                      by {post.author} • {post.authorRole === 'handler' ? '🏠 Handler' : post.authorRole === 'vet' ? '🩺 Veterinarian' : post.authorRole === 'trainer' ? '🎓 Trainer' : '👤 Expert'}
+                    <p className="text-sm text-gray-600 flex items-center gap-1">
+                      by {post.author} •
+                      {post.authorRole === 'handler' && <><Home className="w-3 h-3 ml-1" /> Handler</>}
+                      {post.authorRole === 'vet' && <><Stethoscope className="w-3 h-3 ml-1" /> Veterinarian</>}
+                      {post.authorRole === 'trainer' && <><GraduationCap className="w-3 h-3 ml-1" /> Trainer</>}
+                      {!['handler', 'vet', 'trainer'].includes(post.authorRole) && <><User className="w-3 h-3 ml-1" /> Expert</>}
                     </p>
                   </div>
                   <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
@@ -70,8 +75,8 @@ export default function BlogPage() {
                 <p className="text-gray-700 mb-4">{post.excerpt}</p>
                 <div className="flex items-center justify-between">
                   <div className="flex gap-4 text-sm text-gray-500">
-                    <span>❤️ {post.likes}</span>
-                    <span>💬 {post.comments}</span>
+                    <span className="flex items-center gap-1"><Heart className="w-4 h-4" /> {post.likes}</span>
+                    <span className="flex items-center gap-1"><MessageCircle className="w-4 h-4" /> {post.comments}</span>
                     <span>{new Date(post.createdAt).toLocaleDateString()}</span>
                   </div>
                   <Button size="sm" className="bg-navy-600 hover:bg-navy-700 text-white">Read</Button>
@@ -124,10 +129,10 @@ export default function BlogPage() {
 
               <div className="flex items-center gap-6 py-6 border-t border-b border-gray-200">
                 <button className="flex items-center gap-2 text-gray-600 hover:text-red-500 transition-colors">
-                  ❤️ <span>{post?.likes}</span>
+                  <Heart className="w-5 h-5" /> <span>{post?.likes}</span>
                 </button>
                 <button className="flex items-center gap-2 text-gray-600 hover:text-navy-600 transition-colors">
-                  💬 <span>{post?.comments}</span>
+                  <MessageCircle className="w-5 h-5" /> <span>{post?.comments}</span>
                 </button>
               </div>
             </Card>
