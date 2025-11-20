@@ -93,8 +93,8 @@ export default function WalletPage() {
             className="text-gray-600 hover:text-navy-900 transition-colors"
           >
             ← Back
-        </button>
-        <h1 className="text-xl font-bold text-navy-900">Dog Passport</h1>
+          </button>
+          <h1 className="text-xl font-bold text-navy-900">Dog Passport</h1>
         <button 
           onClick={() => {/* Share functionality */}}
           className="text-gray-900/90 hover:text-gray-900 transition-colors"

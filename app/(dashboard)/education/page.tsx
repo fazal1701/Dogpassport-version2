@@ -29,12 +29,12 @@ export default function EducationPage() {
       <div className="max-w-md mx-auto">
         <div className="px-4 pt-4 pb-2">
           <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-3">
-            <button onClick={() => setSelectedCard(null)} className="text-gray-600 hover:text-navy-900">
-              <ArrowLeft className="w-5 h-5" />
-            </button>
-            <h1 className="text-lg font-bold text-navy-900">Education</h1>
-          </div>
+            <div className="flex items-center gap-3">
+              <button onClick={() => setSelectedCard(null)} className="text-gray-600 hover:text-navy-900">
+                <ArrowLeft className="w-5 h-5" />
+              </button>
+              <h1 className="text-lg font-bold text-navy-900">Education</h1>
+            </div>
           {selectedEducationCard.audience === 'staff' && (
             <Button
               onClick={handlePrint}
