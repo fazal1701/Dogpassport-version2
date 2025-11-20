@@ -24,11 +24,13 @@ export default function TravelPage() {
   if (selectedGuideData) {
     return (
       <div className="max-w-md mx-auto">
-        <div className="sticky top-0 bg-white border-b border-border p-4 flex items-center gap-3">
-          <button onClick={() => setSelectedGuide(null)} className="text-gray-600 hover:text-navy-900">←</button>
-          <h1 className="text-lg font-bold text-navy-900">Travel Guide</h1>
+        <div className="px-4 pt-4 pb-2">
+          <div className="flex items-center gap-3 mb-4">
+            <button onClick={() => setSelectedGuide(null)} className="text-gray-600 hover:text-navy-900 transition-colors">←</button>
+            <h1 className="text-xl font-bold text-navy-900">Travel Guide</h1>
+          </div>
         </div>
-        <div className="p-4 space-y-4 pb-24">
+        <div className="p-4 space-y-4">
           <div className="text-6xl text-center mb-4">{selectedGuideData.icon}</div>
           <h2 className="text-2xl font-bold text-navy-900">{selectedGuideData.title}</h2>
           
@@ -78,12 +80,14 @@ export default function TravelPage() {
 
   return (
     <div className="max-w-md mx-auto">
-      <div className="sticky top-0 bg-white border-b border-border p-4 flex items-center gap-3">
-        <button onClick={() => router.back()} className="text-gray-600 hover:text-navy-900">←</button>
-        <h1 className="text-lg font-bold text-navy-900">Travel Guides</h1>
+      <div className="px-4 pt-4 pb-2">
+        <div className="flex items-center gap-3 mb-4">
+          <button onClick={() => router.back()} className="text-gray-600 hover:text-navy-900 transition-colors">←</button>
+          <h1 className="text-xl font-bold text-navy-900">Travel Guides</h1>
+        </div>
       </div>
 
-      <div className="p-4 space-y-4 pb-24">
+      <div className="p-4 space-y-4">
         {/* Type Filter */}
         <div className="flex gap-2 overflow-x-auto pb-2">
           {guideTypes.map(type => (

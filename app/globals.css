@@ -5,71 +5,84 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --navy-900: #1E3A8A;
+  /* ===== NAVY AUTHORITY COLOR (Passport Blue) ===== */
+  --navy-950: #0A1628;
+  --navy-900: #1E3A8A;  /* Primary - Authority Blue */
   --navy-800: #1E40AF;
-  --navy-700: #1E40AF;
-  --navy-600: #1E40AF;
-  --ice-100: #DBEAFE;
-  --ice-50: #F0F9FE;
-  --forest-50: #F0FDF4;
-  --forest-300: #86EFAC;
-  --forest-600: #065F46;
-  --forest-700: #047857;
-  --emerald-100: #D1FAE5;
-  --emerald-500: #10B981;
-  --emerald-600: #10B981;
-  --emerald-700: #047857;
-  --emerald-800: #047857;
-  --amber-400: #F59E0B;
-  --red-600: #DC2626;
-  --gray-400: #9CA3AF;
-  --gray-600: #4B5563;
-  --gray-700: #4B5563;
-  --off-white: #F9FAFB;
+  --navy-700: #2563EB;
+  --navy-600: #3B82F6;
+  --navy-500: #60A5FA;
+  --navy-400: #93C5FD;
+  --navy-300: #BFDBFE;
+  --navy-200: #DBEAFE;
+  --navy-100: #EFF6FF;
+  --navy-50: #F0F9FF;
+  
+  /* ===== LIGHT GOLDEN BROWN (Passport Accent) ===== */
+  --golden-brown-900: #78350F;
+  --golden-brown-800: #92400E;
+  --golden-brown-700: #B45309;
+  --golden-brown-600: #D97706;
+  --golden-brown-500: #F59E0B;
+  --golden-brown-400: #FBBF24;
+  --golden-brown-300: #FCD34D;
+  --golden-brown-200: #FDE68A;
+  --golden-brown-100: #FEF3C7;
+  --golden-brown-50: #FFFBEB;
+  
+  /* ===== NEUTRAL GRAYS ===== */
+  --gray-900: #0F172A;
+  --gray-800: #1E293B;
+  --gray-700: #334155;
+  --gray-600: #475569;
+  --gray-500: #64748B;
+  --gray-400: #94A3B8;
+  --gray-300: #CBD5E1;
+  --gray-200: #E2E8F0;
+  --gray-100: #F1F5F9;
+  --gray-50: #F8FAFC;
+  
+  /* ===== WHITE ===== */
   --white: #FFFFFF;
   
-  --background: var(--white);
-  --foreground: var(--navy-900);
+  /* ===== SEMANTIC COLORS (Override shadcn defaults) ===== */
+  --background: var(--golden-brown-50);  /* Light golden brown background */
+  --foreground: var(--navy-900);         /* Navy text */
   --card: var(--white);
   --card-foreground: var(--navy-900);
   --popover: var(--white);
   --popover-foreground: var(--navy-900);
-  --primary: var(--navy-900);
+  --primary: var(--navy-900);            /* Navy primary */
   --primary-foreground: var(--white);
-  --secondary: var(--ice-100);
+  --secondary: var(--golden-brown-100);  /* Light golden brown secondary */
   --secondary-foreground: var(--navy-900);
   --muted: var(--gray-400);
   --muted-foreground: var(--gray-600);
-  --accent: var(--forest-600);
+  --accent: var(--golden-brown-500);     /* Golden brown accent */
   --accent-foreground: var(--white);
-  --destructive: var(--red-600);
+  --destructive: #DC2626;
   --destructive-foreground: var(--white);
-  --border: #E5E7EB;
-  --input: #F3F4F6;
+  --border: var(--golden-brown-200);     /* Light golden brown borders */
+  --input: var(--golden-brown-50);
   --ring: var(--navy-900);
-  --chart-1: var(--forest-600);
-  --chart-2: var(--navy-900);
-  --chart-3: var(--ice-100);
-  --chart-4: var(--emerald-500);
-  --chart-5: var(--amber-400);
   --radius: 0.625rem;
 }
 
 .dark {
-  --background: var(--navy-900);
-  --foreground: var(--white);
-  --card: #1E3A8A;
-  --card-foreground: var(--white);
-  --popover: #1E3A8A;
-  --popover-foreground: var(--white);
-  --primary: var(--white);
+  --background: var(--navy-950);
+  --foreground: var(--golden-brown-50);
+  --card: var(--navy-900);
+  --card-foreground: var(--golden-brown-50);
+  --popover: var(--navy-900);
+  --popover-foreground: var(--golden-brown-50);
+  --primary: var(--golden-brown-400);
   --primary-foreground: var(--navy-900);
   --secondary: var(--navy-800);
-  --secondary-foreground: var(--white);
+  --secondary-foreground: var(--golden-brown-50);
   --muted: var(--gray-600);
   --muted-foreground: var(--gray-400);
-  --accent: var(--forest-700);
-  --accent-foreground: var(--white);
+  --accent: var(--golden-brown-500);
+  --accent-foreground: var(--navy-900);
   --border: var(--navy-800);
   --input: var(--navy-800);
 }
@@ -96,34 +109,47 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  /* Custom brand colors */
+  
+  /* Navy Authority Colors */
+  --color-navy-950: var(--navy-950);
   --color-navy-900: var(--navy-900);
   --color-navy-800: var(--navy-800);
   --color-navy-700: var(--navy-700);
   --color-navy-600: var(--navy-600);
-  --color-forest-50: var(--forest-50);
-  --color-forest-300: var(--forest-300);
-  --color-forest-600: var(--forest-600);
-  --color-forest-700: var(--forest-700);
-  --color-ice-50: var(--ice-50);
-  --color-ice-100: var(--ice-100);
-  --color-emerald-100: var(--emerald-100);
-  --color-emerald-500: var(--emerald-500);
-  --color-emerald-600: var(--emerald-600);
-  --color-emerald-700: var(--emerald-700);
-  --color-emerald-800: var(--emerald-800);
-  --color-amber-400: var(--amber-400);
-  --color-red-600: var(--red-600);
-  --color-gray-400: var(--gray-400);
-  --color-gray-600: var(--gray-600);
+  --color-navy-500: var(--navy-500);
+  --color-navy-400: var(--navy-400);
+  --color-navy-300: var(--navy-300);
+  --color-navy-200: var(--navy-200);
+  --color-navy-100: var(--navy-100);
+  --color-navy-50: var(--navy-50);
+  
+  /* Golden Brown Colors */
+  --color-golden-brown-900: var(--golden-brown-900);
+  --color-golden-brown-800: var(--golden-brown-800);
+  --color-golden-brown-700: var(--golden-brown-700);
+  --color-golden-brown-600: var(--golden-brown-600);
+  --color-golden-brown-500: var(--golden-brown-500);
+  --color-golden-brown-400: var(--golden-brown-400);
+  --color-golden-brown-300: var(--golden-brown-300);
+  --color-golden-brown-200: var(--golden-brown-200);
+  --color-golden-brown-100: var(--golden-brown-100);
+  --color-golden-brown-50: var(--golden-brown-50);
+  
+  /* Gray Scale */
+  --color-gray-900: var(--gray-900);
+  --color-gray-800: var(--gray-800);
   --color-gray-700: var(--gray-700);
-  --color-off-white: var(--off-white);
-  --color-white: var(--white);
+  --color-gray-600: var(--gray-600);
+  --color-gray-500: var(--gray-500);
+  --color-gray-400: var(--gray-400);
+  --color-gray-300: var(--gray-300);
+  --color-gray-200: var(--gray-200);
+  --color-gray-100: var(--gray-100);
+  --color-gray-50: var(--gray-50);
+  
+  /* White */
+  --color-white: #FFFFFF;
+  
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -134,14 +160,83 @@
   * {
     @apply border-border outline-ring/50;
   }
+  
   body {
     @apply bg-background text-foreground;
+    background-color: var(--golden-brown-50);
+    color: var(--navy-900);
+  }
+  
+  /* Override shadcn UI defaults with passport theme */
+  .bg-background {
+    background-color: var(--golden-brown-50) !important;
+  }
+  
+  .bg-card {
+    background-color: var(--white) !important;
+  }
+  
+  .text-foreground {
+    color: var(--navy-900) !important;
+  }
+  
+  .border-border {
+    border-color: var(--golden-brown-200) !important;
+  }
+  
+  /* Default page backgrounds - Navy with golden brown accents */
+  .page-background {
+    background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-800) 100%);
+    min-height: 100vh;
+  }
+  
+  .page-background-light {
+    background: var(--golden-brown-50);
+    min-height: 100vh;
+  }
+  
+  /* Card styling with golden brown borders */
+  .passport-card {
+    background: var(--white);
+    border: 1px solid var(--golden-brown-200);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 2px 8px rgba(30, 58, 138, 0.08);
+  }
+  
+  /* Button overrides */
+  .btn-primary {
+    background: var(--navy-900);
+    color: var(--white);
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background: var(--navy-800);
+  }
+  
+  .btn-accent {
+    background: var(--golden-brown-500);
+    color: var(--white);
+    border: none;
+  }
+  
+  .btn-accent:hover {
+    background: var(--golden-brown-600);
   }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 }
 

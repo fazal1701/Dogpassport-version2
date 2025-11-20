@@ -62,9 +62,9 @@ export function MobileBottomNav() {
       }}
     >
       <div
-        className="bg-white/80 backdrop-blur-xl border-t border-gray-200/50"
+        className="bg-white/95 backdrop-blur-xl border-t border-golden-brown-200/50"
         style={{
-          boxShadow: '0 -4px 12px rgba(0, 0, 0, 0.05)',
+          boxShadow: '0 -4px 12px rgba(0, 0, 0, 0.08)',
         }}
       >
         <div className="flex justify-around items-center h-14 max-w-md mx-auto px-2">

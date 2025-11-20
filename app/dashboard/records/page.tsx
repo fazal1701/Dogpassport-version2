@@ -69,9 +69,9 @@ export default function RecordsPage() {
   };
 
   return (
-    <div className="max-w-md mx-auto">
+    <div className="max-w-md mx-auto min-h-screen" style={{ background: 'var(--golden-brown-50)' }}>
       {/* Header */}
-      <div className="sticky top-0 bg-white border-b border-border p-4 flex items-center justify-between z-10">
+      <div className="sticky top-0 bg-white border-b border-golden-brown-200 p-4 flex items-center justify-between z-10">
         <div className="flex items-center gap-3">
           <button onClick={() => router.back()} className="text-gray-600 hover:text-navy-900">←</button>
           <h1 className="text-lg font-bold text-navy-900">Health Records</h1>
@@ -129,8 +129,8 @@ export default function RecordsPage() {
           onDrop={handleDrop}
           className={`border-2 border-dashed rounded-xl p-6 text-center transition-all ${
             isDragging
-              ? 'border-forest-600 bg-forest-50 scale-105'
-              : 'border-gray-300 bg-gray-50 hover:border-forest-400 hover:bg-forest-50/50'
+              ? 'border-navy-900 bg-golden-brown-50 scale-105'
+              : 'border-golden-brown-300 bg-golden-brown-50 hover:border-navy-900 hover:bg-golden-brown-100/50'
           }`}
         >
           <input
@@ -142,7 +142,7 @@ export default function RecordsPage() {
             className="hidden"
           />
           <Upload className={`w-8 h-8 mx-auto mb-3 ${
-            isDragging ? 'text-forest-600' : 'text-gray-400'
+            isDragging ? 'text-navy-900' : 'text-gray-400'
           }`} />
           <p className="text-sm font-semibold text-navy-900 mb-1">
             {isDragging ? 'Drop files here' : 'Upload Documents'}
@@ -153,7 +153,8 @@ export default function RecordsPage() {
           <Button
             onClick={() => fileInputRef.current?.click()}
             disabled={uploading}
-            className="bg-forest-600 hover:bg-forest-700 text-white"
+            className="bg-navy-900 hover:bg-navy-800 text-white"
+            style={{ backgroundColor: 'var(--navy-900)' }}
           >
             {uploading ? (
               <div className="flex items-center gap-2">

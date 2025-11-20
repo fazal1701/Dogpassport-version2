@@ -85,11 +85,13 @@ export default function VerificationPage() {
   if (step === 'overview') {
     return (
       <div className="max-w-2xl mx-auto">
-        <div className="sticky top-0 bg-white border-b border-border p-4 flex items-center gap-3 z-10">
-          <button onClick={() => router.back()} className="text-black hover:text-navy-900">
-            ← Back
-          </button>
-          <h1 className="text-lg font-bold text-navy-900">Vet Verification</h1>
+        <div className="px-4 pt-4 pb-2">
+          <div className="flex items-center gap-3 mb-4">
+            <button onClick={() => router.back()} className="text-gray-600 hover:text-navy-900 transition-colors">
+              ← Back
+            </button>
+            <h1 className="text-xl font-bold text-navy-900">Vet Verification</h1>
+          </div>
         </div>
 
         <div className="p-4 space-y-6 pb-20">
@@ -114,7 +116,7 @@ export default function VerificationPage() {
                     {checkmarkInfo.icon}
                     <div className="flex-1">
                       <p className="font-bold text-lg text-navy-900">{checkmarkInfo.label}</p>
-                      <p className="text-sm text-black mt-1">{checkmarkInfo.description}</p>
+                      <p className="text-sm text-gray-700 mt-1">{checkmarkInfo.description}</p>
                       {checkmarkInfo.expires && (
                         <p className="text-xs text-amber-700 mt-2">{checkmarkInfo.expires}</p>
                       )}
@@ -135,7 +137,7 @@ export default function VerificationPage() {
                     <p className="font-semibold text-navy-900">
                       {isPremium ? 'Premium Subscription' : 'Free Account'}
                     </p>
-                    <p className="text-xs text-black mt-1">
+                    <p className="text-xs text-gray-700 mt-1">
                       {isPremium 
                         ? 'Your dog has a Blue Checkmark - the most trusted verification'
                         : 'Upgrade to Premium for Blue Checkmark verification'
@@ -178,7 +180,7 @@ export default function VerificationPage() {
                   <p className={`font-semibold ${mockDog.serviceDogInfoSubmitted ? 'text-emerald-900' : 'text-black'}`}>
                     1. Service Dog Information
                   </p>
-                  <p className="text-xs text-black mt-1">
+                  <p className="text-xs text-gray-700 mt-1">
                     Complete DOT form information (handler info, animal description, training attestations)
                   </p>
                 </div>
@@ -198,7 +200,7 @@ export default function VerificationPage() {
                   <p className={`font-semibold ${mockDog.vetInfoUploaded ? 'text-emerald-900' : 'text-black'}`}>
                     2. Veterinary Records Upload
                   </p>
-                  <p className="text-xs text-black mt-1">
+                  <p className="text-xs text-gray-700 mt-1">
                     Upload vaccination records, health certificates, and vet contact information
                   </p>
                 </div>
@@ -228,7 +230,7 @@ export default function VerificationPage() {
                   }`}>
                     3. Vet Verification Review
                   </p>
-                  <p className="text-xs text-black mt-1">
+                  <p className="text-xs text-gray-700 mt-1">
                     {mockDog.vetVerificationStatus === 'approved'
                       ? 'Verified by veterinarian - Blue Checkmark active'
                       : mockDog.vetVerificationStatus === 'pending'
@@ -340,8 +342,8 @@ export default function VerificationPage() {
                   <p className="font-semibold text-navy-900 mb-2">Documents to Review</p>
                   <div className="space-y-2">
                     {['Rabies Vaccination', 'Service Dog Training Certificate', 'Health Certificate'].map((doc, idx) => (
-                      <div key={idx} className="flex items-center gap-2 text-sm text-black">
-                        <FileText className="w-4 h-4 text-black" />
+                      <div key={idx} className="flex items-center gap-2 text-sm text-gray-700">
+                        <FileText className="w-4 h-4 text-gray-700" />
                         <span>{doc}</span>
                         <CheckCircle2 className="w-4 h-4 text-emerald-600 ml-auto" />
                       </div>
@@ -384,8 +386,8 @@ export default function VerificationPage() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="p-4 border-2 border-navy-900 rounded-lg bg-white">
-                <p className="text-xs text-black mb-4">I hereby attest that:</p>
-                <div className="space-y-3 text-sm text-black">
+                <p className="text-xs text-gray-700 mb-4">I hereby attest that:</p>
+                <div className="space-y-3 text-sm text-gray-700">
                   <p>✓ All information provided is accurate and complete</p>
                   <p>✓ {mockDog.name} is a trained service dog required for my disability</p>
                   <p>✓ All vaccination records are current and valid</p>
@@ -439,13 +441,13 @@ export default function VerificationPage() {
             <CardContent className="space-y-4">
               <div className="p-4 bg-ice-50 rounded-lg">
                 <p className="font-semibold text-navy-900 mb-2">Handler Signature</p>
-                <p className="text-sm text-black">{signature}</p>
-                <p className="text-xs text-black mt-1">Signed: {new Date().toLocaleString()}</p>
+                <p className="text-sm text-gray-700">{signature}</p>
+                <p className="text-xs text-gray-700 mt-1">Signed: {new Date().toLocaleString()}</p>
               </div>
 
               <div className="p-4 border-2 border-dashed border-gray-300 rounded-lg">
                 <p className="font-semibold text-navy-900 mb-2">Veterinarian Signature</p>
-                <p className="text-sm text-black mb-4">
+                <p className="text-sm text-gray-700 mb-4">
                   Your vet will review the documents and provide their signature
                 </p>
                 <Button
@@ -479,7 +481,7 @@ export default function VerificationPage() {
             <CardContent className="p-8 text-center">
               <CheckCircle2 className="w-16 h-16 text-emerald-600 mx-auto mb-4" />
               <h2 className="text-2xl font-bold text-emerald-900 mb-2">Verification Request Submitted</h2>
-              <p className="text-black mb-6">
+              <p className="text-gray-700 mb-6">
                 Your verification request has been submitted and is under review. 
                 You'll receive a notification when the review is complete (typically 3-5 business days).
               </p>

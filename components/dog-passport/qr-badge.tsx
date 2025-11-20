@@ -24,8 +24,21 @@ export function QRBadge({
   const qrCanvasRef = useRef<HTMLCanvasElement>(null);
   const [qrReady, setQrReady] = useState(false);
 
+  // Ensure dog and badges exist with defaults
+  if (!dog) {
+    return null;
+  }
+
+  const badges = dog.badges || {
+    adaCompliant: false,
+    tsaApproved: false,
+    vetVerified: false,
+    hypoallergenic: false,
+    publicAccessCleared: false,
+  };
+
   useEffect(() => {
-    if (!qrCanvasRef.current) return;
+    if (!qrCanvasRef.current || !dog) return;
 
     const qrData = JSON.stringify({
       dogId: dog.id,
@@ -51,22 +64,22 @@ export function QRBadge({
     default: {
       title: 'Service Dog Verification',
       icon: Shield,
-      color: 'text-navy-600',
+      color: 'text-navy-900',
     },
     flight: {
       title: 'TSA & DOT Compliant',
       icon: Plane,
-      color: 'text-blue-600',
+      color: 'text-navy-900',
     },
     rideshare: {
       title: 'Rideshare Verified',
       icon: Shield,
-      color: 'text-forest-600',
+      color: 'text-navy-900',
     },
     restaurant: {
       title: 'ADA Compliant',
       icon: Shield,
-      color: 'text-forest-600',
+      color: 'text-navy-900',
     },
     allergy: {
       title: 'Hypoallergenic Info',
@@ -81,7 +94,7 @@ export function QRBadge({
   return (
     <div
       className={cn(
-        'relative bg-gradient-to-br from-white to-ice-50 rounded-3xl p-6 shadow-xl border border-gray-200',
+        'relative bg-gradient-to-br from-white to-golden-brown-50 rounded-3xl p-6 shadow-xl border border-golden-brown-200',
         'animate-scale-in',
         className
       )}
@@ -110,7 +123,7 @@ export function QRBadge({
               height={64}
               className="rounded-full border-2 border-white shadow-md"
             />
-            {dog.badges.vetVerified && (
+            {badges.vetVerified && (
               <div className="absolute -bottom-1 -right-1 bg-emerald-500 rounded-full p-1 border-2 border-white">
                 <CheckCircle2 className="w-3 h-3 text-white" />
               </div>
@@ -148,25 +161,25 @@ export function QRBadge({
       {/* Badges */}
       {showDetails && (
         <div className="flex flex-wrap gap-2">
-          {dog.badges.adaCompliant && (
+          {badges.adaCompliant && (
             <span className="inline-flex items-center gap-1 bg-emerald-50 text-emerald-700 px-2 py-1 rounded-full text-xs font-medium border border-emerald-200">
               <CheckCircle2 className="w-3 h-3" />
               ADA
             </span>
           )}
-          {dog.badges.tsaApproved && (
+          {badges.tsaApproved && (
             <span className="inline-flex items-center gap-1 bg-blue-50 text-blue-700 px-2 py-1 rounded-full text-xs font-medium border border-blue-200">
               <Plane className="w-3 h-3" />
               TSA
             </span>
           )}
-          {dog.badges.vetVerified && (
+          {badges.vetVerified && (
             <span className="inline-flex items-center gap-1 bg-emerald-50 text-emerald-700 px-2 py-1 rounded-full text-xs font-medium border border-emerald-200">
               <CheckCircle2 className="w-3 h-3" />
               Vet Verified
             </span>
           )}
-          {dog.badges.hypoallergenic && (
+          {badges.hypoallergenic && (
             <span className="inline-flex items-center gap-1 bg-amber-50 text-amber-700 px-2 py-1 rounded-full text-xs font-medium border border-amber-200">
               <Shield className="w-3 h-3" />
               Hypoallergenic

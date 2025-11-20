@@ -21,6 +21,18 @@ export function DogCard({
   className,
   href,
 }: DogCardProps) {
+  if (!dog) {
+    return null;
+  }
+
+  const badges = dog.badges || {
+    adaCompliant: false,
+    tsaApproved: false,
+    vetVerified: false,
+    hypoallergenic: false,
+    publicAccessCleared: false,
+  };
+
   const cardContent = (
     <div
       className={cn(
@@ -79,7 +91,7 @@ export function DogCard({
 
             <div className="flex items-center gap-2 flex-wrap">
               <VerificationBadge status={dog.checkmarkStatus} size="sm" />
-              {dog.badges.vetVerified && (
+              {badges.vetVerified && (
                 <span className="text-xs text-emerald-600 font-medium">
                   ✓ Vet Verified
                 </span>

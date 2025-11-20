@@ -1,4 +1,4 @@
-import { User, DogProfile, VetRecord, EducationCard, DogBadges, TravelGuide, ResourcePartner, SupportTopic, Appointment, Meal, BreedCommunity, CommunityMember, AIInsight, HealthMetric, BlogPost, BlogComment } from './types';
+import { User, Dog, VetRecord, EducationCard, DogBadges, TravelGuide, ResourcePartner, SupportTopic, Appointment, MealLog, BreedCommunity, CommunityMember, AIInsight, HealthMetric, BlogPost, BlogComment } from './types';
 
 export const mockUser: User = {
   id: 'user-1',
@@ -7,34 +7,68 @@ export const mockUser: User = {
   subscriptionTier: 'premium',
   subscriptionExpiresAt: new Date('2025-12-31'),
   createdAt: new Date('2024-01-15'),
+  preferences: {
+    notifications: {
+      push: true,
+      email: true,
+      sms: false,
+    },
+    theme: 'auto',
+    language: 'en',
+    units: 'imperial',
+  },
+  stats: {
+    dogsManaged: 1,
+    recordsUploaded: 8,
+    communityPosts: 0,
+    travelBookings: 0,
+  },
 };
 
-export const mockDog: DogProfile = {
+export const mockDog: Dog = {
   id: 'dog-1',
   userId: 'user-1',
   name: 'Buddy',
   breed: 'Labrador Retriever',
   weight: 68,
+  weightUnit: 'lbs',
   age: 6,
   dateOfBirth: new Date('2018-03-15'),
   color: 'Golden Yellow',
   sex: 'Male',
   photo: '/service-dog-labrador.jpg',
   microchip: 'MC-123456789',
+  isServiceDog: true,
   taskType: 'ptsd',
-  verificationStatus: 'verified',
-  checkmarkStatus: 'blue', // Blue checkmark for premium verified
-  hypoallergenicRating: 'high',
-  createdAt: new Date('2024-01-20'),
-  certificationDate: new Date('2020-06-01'),
-  trainerName: 'Advanced Service Dog Training Institute',
+  taskDescription: 'Trained for PTSD alert and grounding techniques',
+  trainingCertification: '/docs/buddy-training-cert.pdf',
+  handlerAttestation: true,
+  handlerSignature: '/signatures/john-doe-signature.png',
+  verificationStatus: 'blue',
+  checkmarkStatus: 'blue',
+  verificationDate: new Date('2024-02-01'),
+  verifiedBy: 'Dr. Emily Chen, DVM',
+  badges: {
+    adaCompliant: true,
+    tsaApproved: true,
+    vetVerified: true,
+    hypoallergenic: true,
+    publicAccessCleared: true,
+  },
   personality: 'Calm, alert, highly attuned to handler emotions',
   specialNotes: 'Trained for PTSD alert and grounding techniques',
-  serviceDogInfoSubmitted: true,
-  vetInfoUploaded: true,
-  vetVerificationRequested: true,
-  vetVerificationStatus: 'approved',
-  vetVerificationDate: new Date('2024-02-01'),
+  hypoallergenicRating: 'high',
+  serviceDogId: 'SD-2024-001',
+  favoriteActivities: ['Swimming', 'Fetch', 'Hiking'],
+  dietaryRestrictions: ['Grain-free preferred'],
+  knownAllergies: [],
+  emergencyContact: {
+    name: 'Jane Doe',
+    phone: '+1-555-123-9999',
+    relationship: 'Spouse',
+  },
+  createdAt: new Date('2024-01-20'),
+  updatedAt: new Date('2024-11-18'),
 };
 
 export const mockDogBadges: DogBadges = {
@@ -52,6 +86,7 @@ export const mockRecords: VetRecord[] = [
     fileName: 'Rabies Vaccination Certificate 2024',
     fileUrl: '/placeholder.pdf',
     category: 'vaccination',
+    documentType: 'rabies',
     status: 'active',
     expirationDate: new Date('2026-03-15'),
     uploadedAt: new Date('2024-03-10'),
@@ -64,6 +99,7 @@ export const mockRecords: VetRecord[] = [
     fileName: 'Service Dog Task Attestation - Advanced Training',
     fileUrl: '/placeholder.pdf',
     category: 'training-cert',
+    documentType: 'training',
     status: 'active',
     expirationDate: new Date('2025-12-31'),
     uploadedAt: new Date('2024-06-01'),
@@ -76,6 +112,7 @@ export const mockRecords: VetRecord[] = [
     fileName: 'Annual Health Checkup - October 2024',
     fileUrl: '/placeholder.pdf',
     category: 'vet-visit',
+    documentType: 'exam',
     status: 'active',
     uploadedAt: new Date('2024-10-05'),
     verifiedByVet: true,
@@ -87,6 +124,7 @@ export const mockRecords: VetRecord[] = [
     fileName: 'DHPP Vaccination - 2023',
     fileUrl: '/placeholder.pdf',
     category: 'vaccination',
+    documentType: 'dhpp',
     status: 'expiring-soon',
     expirationDate: new Date('2025-02-10'),
     uploadedAt: new Date('2023-02-15'),
@@ -99,6 +137,7 @@ export const mockRecords: VetRecord[] = [
     fileName: 'Bordetella (Kennel Cough) Vaccine',
     fileUrl: '/placeholder.pdf',
     category: 'vaccination',
+    documentType: 'bordetella',
     status: 'active',
     expirationDate: new Date('2025-09-20'),
     uploadedAt: new Date('2024-09-18'),
@@ -111,6 +150,7 @@ export const mockRecords: VetRecord[] = [
     fileName: 'Hip Dysplasia Screening - Clear',
     fileUrl: '/placeholder.pdf',
     category: 'health',
+    documentType: 'other',
     status: 'active',
     uploadedAt: new Date('2023-06-12'),
     verifiedByVet: true,
@@ -122,6 +162,7 @@ export const mockRecords: VetRecord[] = [
     fileName: 'Microchip Registration Certificate',
     fileUrl: '/placeholder.pdf',
     category: 'health',
+    documentType: 'other',
     status: 'active',
     uploadedAt: new Date('2024-01-20'),
     verifiedByVet: true,
@@ -133,6 +174,7 @@ export const mockRecords: VetRecord[] = [
     fileName: 'Health Certificate - International Travel',
     fileUrl: '/placeholder.pdf',
     category: 'vet-visit',
+    documentType: 'health-cert',
     status: 'active',
     expirationDate: new Date('2025-11-15'),
     uploadedAt: new Date('2024-11-10'),
@@ -649,7 +691,7 @@ export const mockAppointments: Appointment[] = [
   },
 ];
 
-export const mockMeals: Meal[] = [
+export const mockMeals: MealLog[] = [
   // Today's meals
   {
     id: 'meal-1',

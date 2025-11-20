@@ -69,23 +69,25 @@ export default function RecordsPage() {
 
   return (
     <div className="max-w-md mx-auto">
-      {/* Header */}
-      <div className="sticky top-0 bg-white border-b border-border p-4 flex items-center justify-between z-10">
-        <div className="flex items-center gap-3">
-          <button onClick={() => router.back()} className="text-gray-600 hover:text-navy-900">←</button>
-          <h1 className="text-lg font-bold text-navy-900">Health Records</h1>
+      {/* Page Header */}
+      <div className="px-4 pt-4 pb-2">
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-3">
+            <button onClick={() => router.back()} className="text-gray-600 hover:text-navy-900 transition-colors">←</button>
+            <h1 className="text-xl font-bold text-navy-900">Health Records</h1>
+          </div>
+          <button
+            onClick={handleAISort}
+            disabled={aiSorting}
+            className="flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-gold-100 to-gold-50 text-navy-900 rounded-lg text-xs font-semibold hover:from-gold-200 hover:to-gold-100 transition-all disabled:opacity-50 border border-gold-200 shadow-sm"
+          >
+            <Sparkles className={`w-3.5 h-3.5 ${aiSorting ? 'animate-spin' : ''}`} />
+            {aiSorting ? 'Sorting...' : 'AI Sort'}
+          </button>
         </div>
-        <button
-          onClick={handleAISort}
-          disabled={aiSorting}
-          className="flex items-center gap-1.5 px-3 py-1.5 bg-ice-100 text-navy-900 rounded-lg text-xs font-semibold hover:bg-ice-200 transition-colors disabled:opacity-50"
-        >
-          <Sparkles className={`w-3.5 h-3.5 ${aiSorting ? 'animate-spin' : ''}`} />
-          {aiSorting ? 'Sorting...' : 'AI Sort'}
-        </button>
       </div>
 
-      <div className="p-4 space-y-4 pb-20">
+      <div className="p-4 space-y-4">
         {/* Expiration Alerts - Prominent */}
         {(expiringRecords.length > 0 || expiredRecords.length > 0) && (
           <Card className={`border-2 ${

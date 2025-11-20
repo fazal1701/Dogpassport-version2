@@ -32,9 +32,11 @@ export default function ResourcesPage() {
 
   return (
     <div className="max-w-md mx-auto">
-      <div className="sticky top-0 bg-white border-b border-border p-4 flex items-center gap-3">
-        <button onClick={() => router.back()} className="text-gray-600 hover:text-navy-900">←</button>
-        <h1 className="text-lg font-bold text-navy-900">Partners & Resources</h1>
+      <div className="px-4 pt-4 pb-2">
+        <div className="flex items-center gap-3 mb-4">
+          <button onClick={() => router.back()} className="text-gray-600 hover:text-navy-900 transition-colors">←</button>
+          <h1 className="text-xl font-bold text-navy-900">Partners & Resources</h1>
+        </div>
       </div>
 
       <div className="p-4 space-y-4 pb-24">

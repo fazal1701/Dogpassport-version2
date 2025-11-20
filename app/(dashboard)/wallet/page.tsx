@@ -85,15 +85,16 @@ export default function WalletPage() {
 
   return (
     <div className="min-h-screen bg-gray-100 text-gray-900">
-      {/* Header - CLEAR Style Minimalist */}
-      <div className="flex justify-between items-center p-4 sticky top-0 z-20 bg-white/95 backdrop-blur-md border-b border-gray-300">
-        <button 
-          onClick={() => router.back()} 
-          className="text-gray-900/90 hover:text-gray-900 transition-colors"
-        >
-          ← Back
+      {/* Page Header */}
+      <div className="px-4 pt-4 pb-2">
+        <div className="flex justify-between items-center mb-4">
+          <button 
+            onClick={() => router.back()} 
+            className="text-gray-600 hover:text-navy-900 transition-colors"
+          >
+            ← Back
         </button>
-        <h1 className="text-lg font-semibold text-gray-900">Dog Passport</h1>
+        <h1 className="text-xl font-bold text-navy-900">Dog Passport</h1>
         <button 
           onClick={() => {/* Share functionality */}}
           className="text-gray-900/90 hover:text-gray-900 transition-colors"

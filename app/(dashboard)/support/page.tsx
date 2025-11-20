@@ -31,9 +31,11 @@ export default function SupportPage() {
   if (selectedTopicData) {
     return (
       <div className="max-w-md mx-auto">
-        <div className="sticky top-0 bg-white border-b border-border p-4 flex items-center gap-3">
-          <button onClick={() => setSelectedTopic(null)} className="text-gray-600 hover:text-navy-900">←</button>
-          <h1 className="text-lg font-bold text-navy-900">Support</h1>
+        <div className="px-4 pt-4 pb-2">
+          <div className="flex items-center gap-3 mb-4">
+            <button onClick={() => setSelectedTopic(null)} className="text-gray-600 hover:text-navy-900 transition-colors">←</button>
+            <h1 className="text-xl font-bold text-navy-900">Support</h1>
+          </div>
         </div>
         <div className="p-4 space-y-4 pb-24">
           <h2 className="text-2xl font-bold text-navy-900">{selectedTopicData.question}</h2>
@@ -42,7 +44,7 @@ export default function SupportPage() {
             {selectedTopicData.category.toUpperCase()}
           </div>
 
-          <p className="text-black leading-relaxed whitespace-pre-wrap">{selectedTopicData.answer}</p>
+          <p className="text-gray-700 leading-relaxed whitespace-pre-wrap">{selectedTopicData.answer}</p>
 
           {selectedTopicData.relatedTopics.length > 0 && (
             <div>
@@ -71,9 +73,11 @@ export default function SupportPage() {
 
   return (
     <div className="max-w-md mx-auto">
-      <div className="sticky top-0 bg-white border-b border-border p-4 flex items-center gap-3">
-        <button onClick={() => router.back()} className="text-gray-600 hover:text-navy-900">←</button>
-        <h1 className="text-lg font-bold text-navy-900">Support & FAQ</h1>
+      <div className="px-4 pt-4 pb-2">
+        <div className="flex items-center gap-3 mb-4">
+          <button onClick={() => router.back()} className="text-gray-600 hover:text-navy-900 transition-colors">←</button>
+          <h1 className="text-xl font-bold text-navy-900">Support & FAQ</h1>
+        </div>
       </div>
 
       <div className="p-4 space-y-4 pb-24">
@@ -115,8 +119,8 @@ export default function SupportPage() {
                 <CardContent className="p-4">
                   <div className="flex items-start justify-between gap-2">
                     <div className="flex-1">
-                      <p className="font-semibold text-black text-sm">{topic.question}</p>
-                      <p className="text-xs text-black mt-1">{topic.answer.substring(0, 60)}...</p>
+                      <p className="font-semibold text-navy-900 text-sm">{topic.question}</p>
+                      <p className="text-xs text-gray-700 mt-1">{topic.answer.substring(0, 60)}...</p>
                     </div>
                     <div className="text-gray-400">→</div>
                   </div>
@@ -134,7 +138,7 @@ export default function SupportPage() {
         <Card className="border-2 border-navy-900">
           <CardContent className="p-4">
             <p className="font-bold mb-2 text-navy-900">Still need help?</p>
-            <p className="text-sm mb-3 text-black">Contact our support team directly for personalized assistance.</p>
+            <p className="text-sm mb-3 text-gray-700">Contact our support team directly for personalized assistance.</p>
             <button className="w-full py-2 bg-navy-900 text-white font-semibold rounded-lg hover:bg-navy-800">
               Email Support
             </button>

@@ -24,8 +24,8 @@ export default function TravelPage() {
 
   if (selectedGuideData) {
     return (
-      <div className="max-w-md mx-auto">
-        <div className="sticky top-0 bg-white border-b border-border p-4 flex items-center gap-3">
+      <div className="max-w-md mx-auto min-h-screen" style={{ background: 'var(--golden-brown-50)' }}>
+        <div className="sticky top-0 bg-white border-b border-golden-brown-200 p-4 flex items-center gap-3">
           <button onClick={() => setSelectedGuide(null)} className="text-gray-600 hover:text-navy-900">←</button>
           <h1 className="text-lg font-bold text-navy-900">Travel Guide</h1>
         </div>
@@ -80,8 +80,8 @@ export default function TravelPage() {
   }
 
   return (
-    <div className="max-w-md mx-auto">
-      <div className="sticky top-0 bg-white border-b border-border p-4 flex items-center gap-3">
+    <div className="max-w-md mx-auto min-h-screen" style={{ background: 'var(--golden-brown-50)' }}>
+      <div className="sticky top-0 bg-white border-b border-golden-brown-200 p-4 flex items-center gap-3">
         <button onClick={() => router.back()} className="text-gray-600 hover:text-navy-900">←</button>
         <h1 className="text-lg font-bold text-navy-900">Travel Guides</h1>
       </div>
@@ -96,7 +96,7 @@ export default function TravelPage() {
               className={`px-3 py-1.5 rounded-lg text-sm font-semibold whitespace-nowrap ${
                 typeFilter === type
                   ? 'bg-navy-900 text-white'
-                  : 'bg-gray-200 text-gray-700'
+                  : 'bg-golden-brown-100 text-navy-900 border border-golden-brown-200'
               }`}
             >
               {type === 'all' ? 'All' : type.replace('-', ' ').charAt(0).toUpperCase() + type.slice(1)}
