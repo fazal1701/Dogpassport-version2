@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { mockTravelGuides } from '@/lib/mock-data';
+import { CheckCircle2, FileText } from 'lucide-react';
 
 export default function TravelPage() {
   const router = useRouter();
