@@ -1,6 +1,6 @@
 'use client';
 
-import { BottomNav } from '@/components/dashboard/bottom-nav';
+import { MobileBottomNav } from '@/components/dog-passport';
 import { AuthProvider } from '@/lib/auth-context';
 
 export default function DashboardLayout({
@@ -10,9 +10,9 @@ export default function DashboardLayout({
 }) {
   return (
     <AuthProvider>
-      <div className="min-h-screen bg-off-white pb-20">
+      <div className="min-h-screen bg-off-white" style={{ paddingBottom: 'max(5rem, calc(env(safe-area-inset-bottom) + 3.5rem))' }}>
         {children}
-        <BottomNav />
+        <MobileBottomNav />
       </div>
     </AuthProvider>
   );

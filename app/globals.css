@@ -1,21 +1,30 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
+@import '../styles/tokens.css';
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
   --navy-900: #1E3A8A;
   --navy-800: #1E40AF;
+  --navy-700: #1E40AF;
+  --navy-600: #1E40AF;
   --ice-100: #DBEAFE;
   --ice-50: #F0F9FE;
+  --forest-50: #F0FDF4;
+  --forest-300: #86EFAC;
   --forest-600: #065F46;
   --forest-700: #047857;
   --emerald-100: #D1FAE5;
   --emerald-500: #10B981;
+  --emerald-600: #10B981;
+  --emerald-700: #047857;
+  --emerald-800: #047857;
   --amber-400: #F59E0B;
   --red-600: #DC2626;
-  --gray-600: #4B5563;
   --gray-400: #9CA3AF;
+  --gray-600: #4B5563;
+  --gray-700: #4B5563;
   --off-white: #F9FAFB;
   --white: #FFFFFF;
   
@@ -92,6 +101,29 @@
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
+  /* Custom brand colors */
+  --color-navy-900: var(--navy-900);
+  --color-navy-800: var(--navy-800);
+  --color-navy-700: var(--navy-700);
+  --color-navy-600: var(--navy-600);
+  --color-forest-50: var(--forest-50);
+  --color-forest-300: var(--forest-300);
+  --color-forest-600: var(--forest-600);
+  --color-forest-700: var(--forest-700);
+  --color-ice-50: var(--ice-50);
+  --color-ice-100: var(--ice-100);
+  --color-emerald-100: var(--emerald-100);
+  --color-emerald-500: var(--emerald-500);
+  --color-emerald-600: var(--emerald-600);
+  --color-emerald-700: var(--emerald-700);
+  --color-emerald-800: var(--emerald-800);
+  --color-amber-400: var(--amber-400);
+  --color-red-600: var(--red-600);
+  --color-gray-400: var(--gray-400);
+  --color-gray-600: var(--gray-600);
+  --color-gray-700: var(--gray-700);
+  --color-off-white: var(--off-white);
+  --color-white: var(--white);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -111,4 +143,18 @@
   .text-balance {
     text-wrap: balance;
   }
+}
+
+/* Shimmer animation for skeleton loaders */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite linear;
 }

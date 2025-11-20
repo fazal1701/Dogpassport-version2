@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { mockRecords } from '@/lib/mock-data';
 import { Upload, FileText, Clock, CheckCircle2, AlertCircle, Sparkles, Filter, Syringe, Award, Hospital, Pill, Scissors, Heart, File } from 'lucide-react';
+import { RecordCard } from '@/components/dog-passport';
 
 export default function RecordsPage() {
   const router = useRouter();
@@ -220,89 +221,16 @@ export default function RecordsPage() {
               </CardContent>
             </Card>
           ) : (
-            filteredRecords.map(record => {
-              const daysUntilExpiry = record.expirationDate
-                ? Math.ceil((new Date(record.expirationDate).getTime() - Date.now()) / (1000 * 60 * 60 * 24))
-                : null;
-              
-              return (
-                <Card
-                  key={record.id}
-                  className={`cursor-pointer border-2 transition-all hover:shadow-md ${
-                    record.status === 'expired'
-                      ? 'border-red-500 bg-red-50'
-                      : record.status === 'expiring-soon'
-                      ? 'border-amber-400 bg-amber-50'
-                      : 'border-border hover:border-forest-600'
-                  }`}
-                >
-                  <CardContent className="p-4">
-                    <div className="flex items-start gap-3">
-                      <div className="w-12 h-12 bg-ice-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                        {record.category === 'vaccination' && <Syringe className="w-6 h-6 text-navy-900" />}
-                        {record.category === 'training-cert' && <Award className="w-6 h-6 text-navy-900" />}
-                        {record.category === 'vet-visit' && <Hospital className="w-6 h-6 text-navy-900" />}
-                        {record.category === 'prescription' && <Pill className="w-6 h-6 text-navy-900" />}
-                        {record.category === 'grooming' && <Scissors className="w-6 h-6 text-navy-900" />}
-                        {record.category === 'health' && <Heart className="w-6 h-6 text-navy-900" />}
-                        {record.category === 'other' && <File className="w-6 h-6 text-navy-900" />}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-start justify-between gap-2 mb-1">
-                          <p className="font-semibold text-navy-900 text-sm">{record.fileName}</p>
-                          {record.verifiedByVet && (
-                            <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                          )}
-                        </div>
-                        <div className="space-y-1">
-                          <p className="text-xs text-gray-600">
-                            {record.verifiedByVet ? (
-                              <span className="flex items-center gap-1">
-                                <CheckCircle2 className="w-3 h-3 text-emerald-600" />
-                                Verified by {record.vetName}
-                              </span>
-                            ) : (
-                              <span className="text-amber-600">Pending verification</span>
-                            )}
-                          </p>
-                          {record.expirationDate && (
-                            <div className="flex items-center gap-1.5">
-                              <Clock className={`w-3 h-3 ${
-                                record.status === 'expired'
-                                  ? 'text-red-600'
-                                  : record.status === 'expiring-soon'
-                                  ? 'text-amber-600'
-                                  : 'text-gray-400'
-                              }`} />
-                              <p className={`text-xs font-semibold flex items-center gap-1 ${
-                                record.status === 'expired'
-                                  ? 'text-red-700'
-                                  : record.status === 'expiring-soon'
-                                  ? 'text-amber-700'
-                                  : 'text-gray-500'
-                              }`}>
-                                {(record.status === 'expired' || record.status === 'expiring-soon') && (
-                                  <AlertCircle className="w-3 h-3" />
-                                )}
-                                {record.status === 'expired'
-                                  ? 'EXPIRED'
-                                  : record.status === 'expiring-soon'
-                                  ? `Expires in ${daysUntilExpiry} day${daysUntilExpiry !== 1 ? 's' : ''}`
-                                  : `Expires ${new Date(record.expirationDate).toLocaleDateString()}`
-                                }
-                              </p>
-                            </div>
-                          )}
-                          <p className="text-xs text-gray-500">
-                            Uploaded {new Date(record.uploadedAt).toLocaleDateString()}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })
+            filteredRecords.map(record => (
+              <RecordCard
+                key={record.id}
+                record={record}
+                onClick={() => {
+                  // Handle record click - could open modal or navigate to detail
+                  console.log('View record:', record.id);
+                }}
+              />
+            ))
           )}
         </div>
       </div>

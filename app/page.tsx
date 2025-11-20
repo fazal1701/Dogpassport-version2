@@ -38,9 +38,13 @@ export default function LandingPage() {
       <header className="sticky top-0 bg-white border-b border-border z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-navy-900 rounded-lg flex items-center justify-center">
-              <Shield className="w-6 h-6 text-white" />
-            </div>
+            <Image
+              src="/Dog-Passport-logo.png"
+              alt="Dog Passport Logo"
+              width={40}
+              height={40}
+              className="w-10 h-10"
+            />
             <span className="text-xl font-bold text-navy-900">Dog Passport</span>
           </div>
           <nav className="hidden md:flex gap-8">
@@ -62,14 +66,7 @@ export default function LandingPage() {
               onClick={() => router.push('/dashboard')}
               className="bg-navy-900 hover:bg-navy-800 text-white font-semibold"
             >
-              Get Started
-            </Button>
-            <Button
-              onClick={() => router.push('/dashboard')}
-              variant="outline"
-              className="border-navy-900 text-navy-900 hover:bg-navy-50 font-semibold"
-            >
-              Sign In
+              Demo
             </Button>
           </div>
         </div>
@@ -78,9 +75,13 @@ export default function LandingPage() {
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
         <div className="mb-8 flex justify-center">
-          <div className="w-20 h-20 bg-gradient-to-br from-navy-600 to-navy-900 rounded-2xl flex items-center justify-center shadow-lg">
-            <Shield className="w-12 h-12 text-white" />
-          </div>
+          <Image
+            src="/Dog-Passport-logo.png"
+            alt="Dog Passport Logo"
+            width={160}
+            height={160}
+            className="w-40 h-40"
+          />
         </div>
         <h1 className="text-5xl md:text-6xl font-bold text-navy-900 mb-6 text-balance leading-tight">
           One Badge. Everywhere. No Questions.
@@ -88,15 +89,6 @@ export default function LandingPage() {
         <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto text-balance leading-relaxed">
           Dog Passport is a trusted digital identity and health vault for service dogs. Show your verified badge at airports, restaurants, rideshare services, and everywhere you go.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-          <Button
-            size="lg"
-            onClick={() => router.push('/dashboard')}
-            className="bg-forest-600 hover:bg-forest-700 text-white font-semibold text-lg px-8 py-6"
-          >
-            Get Your Dog's Passport
-          </Button>
-        </div>
 
         {/* Hero Image */}
         <div className="relative w-full max-w-2xl mx-auto mb-12">
@@ -229,16 +221,7 @@ export default function LandingPage() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="bg-emerald-50 border-2 border-emerald-200 rounded-2xl p-8 order-2 md:order-1">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-emerald-200 rounded-full flex items-center justify-center mx-auto mb-4">
-                <CheckCircle className="w-8 h-8 text-emerald-600" />
-              </div>
-              <p className="text-lg font-semibold text-emerald-900 mb-2">The Solution</p>
-              <p className="text-sm text-emerald-700">Dog Passport - The Official ID for Service Dogs</p>
-            </div>
-          </div>
-          <div className="order-1 md:order-2">
+          <div className="order-2 md:order-1">
             <h2 className="text-4xl font-bold text-navy-900 mb-6">How It Works</h2>
             <div className="space-y-6">
               <div className="flex gap-4">
@@ -274,6 +257,15 @@ export default function LandingPage() {
                   </p>
                 </div>
               </div>
+            </div>
+          </div>
+          <div className="bg-emerald-50 border-2 border-emerald-200 rounded-2xl p-8 order-1 md:order-2">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-emerald-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                <CheckCircle className="w-8 h-8 text-emerald-600" />
+              </div>
+              <p className="text-lg font-semibold text-emerald-900 mb-2">The Solution</p>
+              <p className="text-sm text-emerald-700">Dog Passport - The Official ID for Service Dogs</p>
             </div>
           </div>
         </div>
@@ -530,13 +522,6 @@ export default function LandingPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
         <h2 className="text-4xl font-bold text-navy-900 mb-6">Ready to Get Your Dog's Passport?</h2>
         <p className="text-xl text-gray-600 mb-8">Start for free. Verify with your vet. Go anywhere with confidence.</p>
-        <Button 
-          size="lg" 
-          onClick={() => router.push('/dashboard')}
-          className="bg-forest-600 hover:bg-forest-700 text-white"
-        >
-          Get Your Dog's Passport
-        </Button>
       </section>
 
       {/* FAQ Section */}

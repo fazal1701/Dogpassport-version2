@@ -84,19 +84,19 @@ export default function WalletPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-navy-900 via-navy-800 to-navy-900 text-white">
+    <div className="min-h-screen bg-gray-100 text-gray-900">
       {/* Header - CLEAR Style Minimalist */}
-      <div className="flex justify-between items-center p-4 sticky top-0 z-20 bg-navy-900/95 backdrop-blur-md border-b border-navy-700/50">
+      <div className="flex justify-between items-center p-4 sticky top-0 z-20 bg-white/95 backdrop-blur-md border-b border-gray-300">
         <button 
           onClick={() => router.back()} 
-          className="text-white/90 hover:text-white transition-colors"
+          className="text-gray-900/90 hover:text-gray-900 transition-colors"
         >
           ← Back
         </button>
-        <h1 className="text-lg font-semibold">Dog Passport</h1>
+        <h1 className="text-lg font-semibold text-gray-900">Dog Passport</h1>
         <button 
           onClick={() => {/* Share functionality */}}
-          className="text-white/90 hover:text-white transition-colors"
+          className="text-gray-900/90 hover:text-gray-900 transition-colors"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
@@ -122,10 +122,10 @@ export default function WalletPage() {
             )}
           </div>
           <div className="text-center">
-            <h2 className="text-3xl font-bold">{mockDog.name}</h2>
-            <p className="text-ice-100 text-sm mt-1">{mockDog.breed}</p>
+            <h2 className="text-3xl font-bold text-gray-900">{mockDog.name}</h2>
+            <p className="text-gray-700 text-sm mt-1">{mockDog.breed}</p>
             {mockDog.taskType && (
-              <p className="text-ice-100/80 text-xs mt-1 capitalize">
+              <p className="text-gray-600 text-xs mt-1 capitalize">
                 {mockDog.taskType.replace('-', ' ')} Service Dog
               </p>
             )}
@@ -170,7 +170,7 @@ export default function WalletPage() {
 
         {/* Mode Selector - Tesla Style Big Buttons */}
         <div className="w-full max-w-sm space-y-3">
-          <p className="text-center text-sm text-ice-100/80 font-medium">Passport Mode</p>
+          <p className="text-center text-sm text-gray-700 font-medium">Passport Mode</p>
           <div className="grid grid-cols-2 gap-3">
             {Object.entries(modeInfo).map(([modeKey, info]) => (
               <button
@@ -179,7 +179,7 @@ export default function WalletPage() {
                 className={`p-4 rounded-xl transition-all text-left border-2 ${
                   mode === modeKey
                     ? 'bg-emerald-500 text-white border-emerald-400 shadow-lg scale-105'
-                    : 'bg-navy-700/50 text-ice-100 border-navy-600 hover:bg-navy-700'
+                    : 'bg-white text-gray-900 border-gray-300 hover:bg-gray-50'
                 }`}
               >
                 <div className="flex items-center gap-2 mb-1">
@@ -193,16 +193,16 @@ export default function WalletPage() {
         </div>
 
         {/* Mode-Specific Information */}
-        <Card className="w-full max-w-sm bg-navy-700/30 border-navy-600/50">
+        <Card className="w-full max-w-sm bg-white border-gray-300">
           <CardContent className="p-4 space-y-3">
             <div className="flex items-center gap-2 mb-2">
               {modeInfo[mode].icon}
-              <h3 className="font-semibold text-ice-100">{modeInfo[mode].title}</h3>
+              <h3 className="font-semibold text-gray-900">{modeInfo[mode].title}</h3>
             </div>
-            <p className="text-sm text-ice-100/80">{modeInfo[mode].desc}</p>
+            <p className="text-sm text-gray-700">{modeInfo[mode].desc}</p>
             
             {modeInfo[mode].badges && modeInfo[mode].badges.length > 0 && (
-              <div className="space-y-2 pt-2 border-t border-navy-600/50">
+              <div className="space-y-2 pt-2 border-t border-gray-300">
                 {modeInfo[mode].badges.map((badge, idx) => (
                   <div key={idx} className="flex items-center gap-2 text-xs text-emerald-200">
                     <CheckCircle2 className="w-3.5 h-3.5" />
@@ -213,8 +213,8 @@ export default function WalletPage() {
             )}
 
             {mode === 'flight' && modeInfo[mode].documents && (
-              <div className="pt-2 border-t border-navy-600/50">
-                <p className="text-xs font-semibold text-ice-100 mb-2">Required Documents:</p>
+              <div className="pt-2 border-t border-gray-300">
+                <p className="text-xs font-semibold text-gray-900 mb-2">Required Documents:</p>
                 {modeInfo[mode].documents!.map((doc, idx) => {
                   const hasDoc = activeRecords.some(r => 
                     r.fileName.toLowerCase().includes(doc.toLowerCase().split(' ')[0])
@@ -236,13 +236,13 @@ export default function WalletPage() {
             )}
 
             {mode === 'rideshare' && (
-              <div className="pt-2 border-t border-navy-600/50 bg-navy-800/30 rounded-lg p-3">
-                <p className="text-xs font-semibold text-ice-100 mb-2">ADA 2-Question Rule:</p>
-                <div className="space-y-1.5 text-xs text-ice-100/80">
+              <div className="pt-2 border-t border-gray-300 bg-gray-50 rounded-lg p-3">
+                <p className="text-xs font-semibold text-gray-900 mb-2">ADA 2-Question Rule:</p>
+                <div className="space-y-1.5 text-xs text-gray-700">
                   <p>1. Is this a service dog?</p>
                   <p>2. What task does it perform?</p>
                 </div>
-                <p className="text-xs text-ice-100/60 mt-2 italic">
+                <p className="text-xs text-gray-600 mt-2 italic">
                   Drivers cannot ask for documentation or deny service
                 </p>
               </div>
@@ -252,14 +252,14 @@ export default function WalletPage() {
 
         {/* NFC Tap Zone - Apple Wallet Style */}
         <div 
-          className="w-full max-w-sm bg-navy-700/30 border-2 border-dashed border-navy-500/50 rounded-2xl p-6 text-center cursor-pointer hover:bg-navy-700/50 transition-all"
+          className="w-full max-w-sm bg-white border-2 border-dashed border-gray-400 rounded-2xl p-6 text-center cursor-pointer hover:bg-gray-50 transition-all"
           onClick={handleNFC}
         >
           <div className={`text-5xl mb-3 ${showNFCAnimation ? 'animate-bounce' : ''}`}>
             📱
           </div>
-          <p className="text-sm font-semibold text-ice-100 mb-1">NFC Tap Verification</p>
-          <p className="text-xs text-ice-100/70">Tap phone to NFC reader for instant verification</p>
+          <p className="text-sm font-semibold text-gray-900 mb-1">NFC Tap Verification</p>
+          <p className="text-xs text-gray-600">Tap phone to NFC reader for instant verification</p>
           {showNFCAnimation && (
             <p className="text-xs text-emerald-400 mt-2 animate-pulse">✓ Verified</p>
           )}
@@ -283,16 +283,16 @@ export default function WalletPage() {
         )}
 
         {/* Last Verified Date */}
-        <p className="text-xs text-ice-100/60 text-center">
-          Last verified: {new Date().toLocaleDateString()} • QR never expires
+        <p className="text-xs text-gray-600 text-center">
+          Last verified: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })} • QR never expires
         </p>
       </div>
 
       {/* Bottom Actions - Fixed */}
-      <div className="fixed bottom-0 left-0 right-0 p-4 bg-navy-900/95 backdrop-blur-md border-t border-navy-700/50 flex gap-3">
+      <div className="fixed bottom-0 left-0 right-0 p-4 bg-white/95 backdrop-blur-md border-t border-gray-300 flex gap-3">
         <Button 
           variant="outline" 
-          className="flex-1 text-white border-ice-100/30 hover:bg-navy-800 hover:border-ice-100/50"
+          className="flex-1 text-gray-900 border-gray-300 hover:bg-gray-100 hover:border-gray-400"
           onClick={() => router.push('/dashboard/records')}
         >
           View Records
